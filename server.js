@@ -8,7 +8,8 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/getapi', routes);
 
-app.listen(8001, () => {
-    console.log("server is running at 8001")
+let port = process.env.PORT || 8001
+app.listen(port, () => {
+    console.log(`server is running at ${port}`)
 
 })
