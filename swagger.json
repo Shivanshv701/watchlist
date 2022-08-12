@@ -1,0 +1,109 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "GET API",
+        "description": "GET API developed in ExpressJS",
+        "version": "4.5"
+    },
+    "produces": [
+        "application/json"
+    ],
+    "host": "localhost:8001",
+    "basePath": "/getapi",
+    "paths": {
+        "/weather/getCity/": {
+            "get": {
+                "x-swagger-router-controller": "apiController",
+                "tags": [
+                    "Weather by cityname"
+                ],
+                "description": "Get Weather by city name",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in":"query",
+                        "required":true,
+                        "type":"string",
+                        "description":"name of city for which we want weather details"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                        
+                    }
+                }
+            }
+        },
+        "/forecast/getCity": {
+            "get": {
+                "x-swagger-router-controller": "apiController",
+                "tags": [
+                    "Forecast by cityname"
+                ],
+                "description": "Get Forecast of city by city name",
+                "parameters": [
+                    {
+                        "name":"city",
+                        "in":"query",
+                        "required":true,
+                        "type":"string",
+                        "description":"name of city for which we want weather details"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "coord": {
+                                
+                            },
+                            "weather": [
+                                {
+                                    "id": 804,
+                                    "main": "Clouds",
+                                    "description": "overcast clouds",
+                                    "icon": "04n"
+                                }
+                            ]
+                        }
+                        
+                    }
+                }
+            }
+        },
+        "/forecast/daily": {
+            "get": {
+                "x-swagger-router-controller": "apiController",
+                "tags": [
+                    "Weather by latitude and longitude"
+                ],
+                "description": "Get Weather by latitude and longitude",
+                "parameters": [
+                    {
+                        "name":"lat",
+                        "in":"query",
+                        "required":true,
+                        "type":"string",
+                        "description":"latitude of city for which we want weather details"
+                    },
+                    {
+                        "name":"lon",
+                        "in":"query",
+                        "required":true,
+                        "type":"string",
+                        "description":"longitude of city for which we want weather details"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                        
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
